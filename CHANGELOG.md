@@ -1,5 +1,19 @@
 # Changelog
 
+## [v1.1.4](https://github.com/Songmu/tagpr/compare/v1.1.3...v1.1.4) - 2023-10-31
+- Fix latest semver tag retrieval for first time setup by @stefafafan in https://github.com/Songmu/tagpr/pull/160
+
+## [v1.1.3](https://github.com/Songmu/tagpr/compare/v1.1.2...v1.1.3) - 2023-10-18
+- Fix syntax errors on docs. by @kyo-ago in https://github.com/Songmu/tagpr/pull/150
+- Use the official actions/create-github-app-token Action instead of tibdex/github-app-token by @stefafafan in https://github.com/Songmu/tagpr/pull/158
+- Consider vPrefix when retrieving the latest semver tag. by @k1LoW in https://github.com/Songmu/tagpr/pull/159
+
+## [v1.1.2](https://github.com/Songmu/tagpr/compare/v1.1.1...v1.1.2) - 2023-01-20
+- fix: Bug fixes related to #144 by @toritori0318 in https://github.com/Songmu/tagpr/pull/148
+
+## [v1.1.1](https://github.com/Songmu/tagpr/compare/v1.1.0...v1.1.1) - 2023-01-18
+- fix: skip version file detection by @toritori0318 in https://github.com/Songmu/tagpr/pull/145
+
 ## [v1.1.0](https://github.com/Songmu/tagpr/compare/v1.0.8...v1.1.0) - 2023-01-15
 - Fixing typo in config's `tagpr.tmplate` by @k2tzumi in https://github.com/Songmu/tagpr/pull/140
 - feat: Alternative labels for minor and major labels can be specified by @k2tzumi in https://github.com/Songmu/tagpr/pull/142

@@ -310,6 +310,38 @@ func TestGeneratenNextLabels(t *testing.T) {
 	}
 }
 
+func TestLatestSemverTag(t *testing.T) {
+	vPrefixTrue := true
+	vPrefixFalse := false
+	tests := []struct {
+		name    string
+		vPrefix *bool
+		wantVer bool
+	}{
+		{"github.com/Songmu/tagpr has a semver tag with 'v' prefix", &vPrefixTrue, true},
+		{"github.com/Songmu/tagpr has no semver tag without 'v' prefix", &vPrefixFalse, false},
+		{"github.com/Songmu/tagpr returns the first tag when no config exists", nil, true},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			tp, err := newTagPR(context.Background(), &commander{
+				gitPath: "git", outStream: os.Stdout, errStream: os.Stderr, dir: "."},
+			)
+			if err != nil {
+				t.Error(err)
+				return
+			}
+			tp.cfg = &config{
+				vPrefix: tt.vPrefix,
+			}
+			got := tp.latestSemverTag()
+			if (got != "") != tt.wantVer {
+				t.Errorf("got: %s, wantVer: %t", got, tt.wantVer)
+			}
+		})
+	}
+}
+
 func newGithubLabel(name *string) *github.Label {
 	return &github.Label{
 		ID:          new(int64),
